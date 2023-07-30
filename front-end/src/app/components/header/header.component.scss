@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: last baseline;
+  padding: 1.5rem 2rem;
+}
+
+.logo {
+  display: flex;
+}
+
+.nav {
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    padding: 0rem 1rem;
+  }
+
+  &__link {
+    &--important {
+    }
+  }
+}
