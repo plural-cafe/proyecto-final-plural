@@ -1,16 +1,15 @@
 <div class="container">
-  <div class="login-box">
-    <form action="" [formGroup]="form" class="login__form">
+  <div class="login">
+    <form (ngSubmit)="login()" [formGroup]="form" class="login__form">
       <div class="login__form__control">
         <label for="nickname">Escribe tu usuario:</label>
         <input
           type="text"
           name="nickname"
           formControlName="nickname"
-          [class.is-invalid]="
-            form.get('nickname')?.touched && form.get('nickname')?.invalid
-          "
+          appInputValidation
         />
+        <div class="" *ngIf="">Este campo es requerido</div>
       </div>
       <div class="login__form__control">
         <label for="password">Escribe tu contraseña:</label>
@@ -18,14 +17,15 @@
           type="password"
           name="password"
           formControlName="password"
-          [class.is-invalid]="
-            form.get('password')?.touched && form.get('password')?.invalid
-          "
+          appInputValidation
         />
       </div>
       <button type="submit">Iniciar sesión</button>
+      <div *ngIf="!valideForm">El usuario o la contraseña son incorrectos</div>
     </form>
-    <a>He olvidado la contraseña</a>
-    <a>Registrarme</a>
+    <div class="login__extra">
+      <a>He olvidado la contraseña</a>
+      <a>Registrarme</a>
+    </div>
   </div>
 </div>

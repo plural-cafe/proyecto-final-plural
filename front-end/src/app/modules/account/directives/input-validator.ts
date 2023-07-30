@@ -1,44 +1,49 @@
-import { Directive, Input } from '@angular/core';
-import {
-  AbstractControl,
-  NG_VALIDATORS,
-  ValidationErrors,
-} from '@angular/forms';
+import { Directive, Renderer2, ElementRef, HostListener } from '@angular/core';
+
+import { NG_VALIDATORS, NgControl } from '@angular/forms';
 
 @Directive({
   selector: '[appInputValidation]',
-  providers: [
-    {
-      provide: NG_VALIDATORS,
-      useExisting: InputValidatorDirective,
-      multi: true,
-    },
-  ],
 })
 export class InputValidatorDirective {
-  @Input('appInputValidation') validationType: string | undefined;
-
-  validate(control: AbstractControl): ValidationErrors | null {
-    if (!this.validationType) {
-      return null;
-    }
-
-    const value = control.value;
-    const valid = this.isValid(value);
-
-    if (valid != null && !valid) {
-      return { [this.validationType]: true };
-    }
-
-    return null;
+  private errorMessageElement!: HTMLElement;
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private ngControl: NgControl
+  ) {
+    this.errorMessageElement = this.renderer.createElement('span');
+    this.renderer.addClass(this.errorMessageElement, 'error-message');
+    this.renderer.setStyle(this.errorMessageElement, 'color', 'red');
+    this.renderer.setStyle(this.errorMessageElement, 'display', 'none');
+    this.renderer.insertBefore(
+      this.el.nativeElement.parentNode,
+      this.errorMessageElement,
+      this.el.nativeElement.nextSibling
+    );
   }
 
-  private isValid(value: any): boolean {
-    // Implement your custom validation logic here
-    // For example, check the length, characters, etc.
-    // Return true if the value is valid, false otherwise
-    return true;
+  @HostListener('focusout')
+  onFocusOut() {
+    const control = this.ngControl.control;
+    if (control?.invalid && (control.dirty || control.touched)) {
+      this.renderer.addClass(this.el.nativeElement, 'login');
+      this.showErrorMessage('Este campo es requerido.');
+    } else if (!control?.value || control.value.trim() === '') {
+      this.renderer.addClass(this.el.nativeElement, 'login');
+      this.showErrorMessage('Este campo es requerido.');
+    } else {
+      this.renderer.removeClass(this.el.nativeElement, 'login');
+      this.hideErrorMessage();
+    }
+  }
+  private showErrorMessage(message: string) {
+    this.renderer.setStyle(this.errorMessageElement, 'display', 'block');
+    this.errorMessageElement.textContent = message;
   }
 
-  constructor() {}
+  private hideErrorMessage() {
+    this.renderer.setStyle(this.errorMessageElement, 'display', 'none');
+    this.errorMessageElement.textContent = '';
+  }
 }
