@@ -1,31 +1,35 @@
 <div class="container">
-  <div class="login">
-    <form (ngSubmit)="login()" [formGroup]="form" class="login__form">
-      <div class="login__form__control">
+  <form (ngSubmit)="login()" [formGroup]="form" class="form">
+    <h2 class="form__title">Inicia Sesión</h2>
+    <div class="form__container">
+      <div class="form__group">
         <label for="nickname">Escribe tu usuario:</label>
         <input
           type="text"
           name="nickname"
           formControlName="nickname"
           appInputValidation
+          class="form__input"
         />
         <div class="" *ngIf="">Este campo es requerido</div>
       </div>
-      <div class="login__form__control">
+      <div class="form__group">
         <label for="password">Escribe tu contraseña:</label>
         <input
           type="password"
           name="password"
           formControlName="password"
           appInputValidation
+          class="form__input"
         />
       </div>
       <button type="submit">Iniciar sesión</button>
       <div *ngIf="!valideForm">El usuario o la contraseña son incorrectos</div>
-    </form>
-    <div class="login__extra">
-      <a>He olvidado la contraseña</a>
-      <a>Registrarme</a>
     </div>
-  </div>
+    <div class="form__extra">
+      <a>He olvidado la contraseña</a>
+      <a routerLink="/signup">Registrarme</a>
+    </div>
+  </form>
+  <div class="login__extra"></div>
 </div>

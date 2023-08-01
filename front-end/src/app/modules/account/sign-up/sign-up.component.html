@@ -1,18 +1,43 @@
-<div>
-  <form action="" [formGroup]="form">
-    <div>
-      <label for="">Nombre Completo: </label>
-      <input type="text" />
+<div class="container">
+  <form [formGroup]="form" class="form" (ngSubmit)="(signup)">
+    <div class="form__container">
+      <div class="form__group">
+        <label for="">Nombre Completo: </label>
+        <input
+          type="text"
+          formControlName="name"
+          appInputValidation
+          class="form__input"
+        />
+      </div>
+      <div class="form__group">
+        <label for="">Apodo: </label>
+        <input
+          type="text"
+          formControlName="nickname"
+          appInputValidation
+          class="form__input"
+        />
+      </div>
+      <div class="form__group">
+        <label for="">Correo electrónico: </label>
+        <input
+          type="text"
+          formControlName="email"
+          appInputValidation
+          class="form__input"
+        />
+      </div>
+      <div class="form__group">
+        <label for="">Contraseña: </label>
+        <input
+          type="password"
+          formControlName="password"
+          appInputValidation
+          class="form__input"
+        />
+      </div>
+      <button type="submit" [disabled]="!form.valid">Registrarme</button>
     </div>
-    <div>
-      <label for="">Apodo: </label>
-      <input type="text" />
-    </div>
-    <div>
-      <label for="">Correo electrónico: </label>
-      <input type="text" />
-    </div>
-    <div><label for="">Contraseña: </label><input type="text" /></div>
-    <button type="submit"></button>
   </form>
 </div>

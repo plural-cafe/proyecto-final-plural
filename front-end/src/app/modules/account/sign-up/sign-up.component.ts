@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,6 +10,13 @@ export class SignUpComponent {
   form: FormGroup;
 
   constructor(formBuilder: FormBuilder) {
-    this.form = formBuilder.group({});
+    this.form = formBuilder.group({
+      name: ['', Validators.required],
+      nickname: ['', Validators.required],
+      password: ['', Validators.required],
+      email: ['', Validators.required],
+    });
   }
+
+  signup() {}
 }
