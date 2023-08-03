@@ -1,3 +1,9 @@
+@import "../../../../styles.scss";
+
 .is-invalid {
   border-color: red;
+}
+
+.container {
+  background-color: $pink-color;
 }

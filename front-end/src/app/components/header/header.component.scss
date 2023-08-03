@@ -1,12 +1,20 @@
+@import "../../../styles.scss";
+
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: last baseline;
+  justify-content: space-between;
+  color: white;
   padding: 1.5rem 2rem;
+  font-family: $body-font;
+  background-color: $black-color;
 }
 
 .logo {
   display: flex;
+  &__text {
+    font-family: $logo-font;
+  }
 }
 
 .nav {
@@ -19,7 +27,6 @@
   }
 
   &__link {
-    &--important {
-    }
+    color: white;
   }
 }

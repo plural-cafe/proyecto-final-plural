@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+$logo-font: "Open Sans", sans-serif;
+$body-font: "Quattrocento Sans", sans-serif;
+
+$pink-color: #eaa9a3;
+$black-color: #000000;
+$white-color: #ffffff;
+$green-color: #bdd4c2;
+
 * {
   margin: 0;
   padding: 0;
@@ -21,8 +30,9 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 700px;
-  height: 85vh;
+  width: 100vw;
+  min-height: calc(100vh - 92px);
+  height: 100%;
 }
 
 .form {
@@ -33,6 +43,7 @@ input {
   border-radius: 0.75rem;
   box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
   background-color: #fff;
+  font-family: $body-font;
 
   &__title {
     font-size: 2rem;

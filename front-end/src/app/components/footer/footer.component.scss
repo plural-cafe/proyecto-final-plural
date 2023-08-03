@@ -1,34 +1,37 @@
-.redes {
-  margin: 50px;
-}
-.redes p {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 20px;
-  color: #c0392b;
-}
-.redes .links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.redes .links a {
-  margin: 0 30px;
-}
-.redes .links a i {
-  font-size: 48px;
-  color: #01031e;
-}
-.redes .links a i:hover {
-  color: #e89f31;
-}
+@import "../../../styles.scss";
 
+.footer {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: max-content 1fr 1fr 1fr;
+  padding: 6.25rem;
+  font-family: $body-font;
+  background-color: $green-color;
 
+  &__logo {
+    display: flex;
+    margin-right: 3rem;
 
-footer {
-  background-color: #4a4a4a;
-  color: #fff;
-  padding: 16px;
-  text-align: center;
-  font-size: 14px;
-}/*# sourceMappingURL=style.css.map */
+    &__img {
+      align-self: center;
+      margin-right: 1.87rem;
+      border-radius: 50%;
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+
+    &__title {
+      font-size: 3.75rem;
+      font-weight: 500;
+    }
+  }
+
+  &__polytics {
+    display: flex;
+  }
+
+  &__item {
+    padding: 0.9rem;
+    font-size: 0.78rem;
+  }
+}
