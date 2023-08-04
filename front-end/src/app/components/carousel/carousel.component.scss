@@ -1,0 +1,28 @@
+@import "./src/styles.scss";
+
+.btn {
+  font-family: $body-font;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-color: $pink-color;
+  padding: 0.5rem 0.75rem;
+}
+
+img {
+  min-width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.carousel-caption {
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+}
+
+.carousel__title {
+  font-family: $title-font;
+  font-size: 2rem;
+  font-weight: 700;
+}

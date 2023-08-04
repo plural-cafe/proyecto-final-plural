@@ -12,8 +12,15 @@
 
 .logo {
   display: flex;
+
+  &__img {
+    border-radius: 50%;
+    width: 50px;
+  }
   &__text {
     font-family: $logo-font;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 }
 
@@ -28,5 +35,9 @@
 
   &__link {
     color: white;
+
+    &--important {
+      font-weight: 700;
+    }
   }
 }

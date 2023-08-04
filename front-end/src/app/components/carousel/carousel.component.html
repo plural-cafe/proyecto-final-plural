@@ -1,0 +1,23 @@
+<div class="container">
+  <ngb-carousel
+    [interval]="5000"
+    [pauseOnFocus]="pauseOnFocus"
+    [pauseOnHover]="pauseOnHover"
+    *ngIf="images"
+    [showNavigationArrows]="showNavigationArrows"
+    [showNavigationIndicators]="showNavigationIndicators"
+  >
+    <ng-template ngbSlide *ngFor="let image of images">
+      <div class="picsum-img-wrapper">
+        <img [src]="image" alt="Random slide" />
+      </div>
+      <div class="carousel-caption">
+        <h3 class="carousel__title">Lorem ipsum nirvana lapsu</h3>
+        <p class="carousel__description">
+          This carousel hides navigation arrows and indicators.
+        </p>
+        <button class="btn">Unete ya</button>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>

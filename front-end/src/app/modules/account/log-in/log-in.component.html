@@ -23,7 +23,9 @@
           class="form__input"
         />
       </div>
-      <button type="submit" class="form__submit">Iniciar sesión</button>
+      <button type="submit" class="form__submit" [disabled]="!form.valid">
+        Iniciar sesión
+      </button>
       <div *ngIf="!valideForm">El usuario o la contraseña son incorrectos</div>
     </div>
     <div class="form__extra">
