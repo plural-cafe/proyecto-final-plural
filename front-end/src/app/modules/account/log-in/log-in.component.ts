@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AccountService } from '../account.service';
+import { User } from '../../../shared/interfaces/User';
 
 @Component({
   selector: 'app-log-in',
@@ -12,7 +14,10 @@ export class LogInComponent {
   email = 'juanca20042004@hotmail.com';
   password = 'hola123';
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private accountService: AccountService
+  ) {
     this.form = formBuilder.group({
       nickname: ['', Validators.required],
       password: ['', Validators.required],

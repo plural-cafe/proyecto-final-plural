@@ -11,6 +11,7 @@ import { CoursesComponent } from './modules/courses/courses.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     CoursesComponent,
     FooterComponent,
     HomeComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

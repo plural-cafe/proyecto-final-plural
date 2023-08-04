@@ -1,5 +1,10 @@
 @import "./src/styles.scss";
 
+.container {
+  padding: 0;
+  margin: 0;
+}
+
 .btn {
   font-family: $body-font;
   font-size: 1.5rem;
